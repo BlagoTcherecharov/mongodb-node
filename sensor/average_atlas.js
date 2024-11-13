@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-const url = "mongodb+srv://blago:PASSWORD@cluster0.ehhe5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const url = process.env.MONGO_URI;
 const dbName = 'my-sensors';
 const collectionName = 'data';
 const options = {
