@@ -1,0 +1,20 @@
+name: MongoDB Connection Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-mongodb-connection:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Connect to MongoDB
+        env:
+          MONGO_URI: mongodb+srv://blago:${{ secrets.PASSWORD }}@cluster0.ehhe5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+        run: |
+          echo "Connecting to MongoDB..."
